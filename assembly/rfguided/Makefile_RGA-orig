@@ -118,7 +118,7 @@ RATT_QUERY_SEQ      = ${RATT_QUERY_SEQNAME}.fa
 RATT_QUERY_EMBL     = ${RATT_QUERY_SEQNAME}.embl
 
 #
-RTO-d               = embl# Directory name with embl-annotation files; NEEDs to be validated by the Artemis/Save as embl file.
+RTO-d               = embl# Directory name with embl-annotation files.
 RTO-q               = ${RATT_QUERY_SEQ}#  A multifasta file to which the annotation will be mapped.
 RTO-r               = RATT# The prefix you wish to give to each result file
 RTO-t               = Strain#  Transfer type, one of Assembly, Strain, Species, Multiple, Free.
