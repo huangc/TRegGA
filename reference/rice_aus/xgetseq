@@ -13,6 +13,10 @@ wget http://rice50ks.dna.affrc.go.jp/kasalath_genome.tar.gz .
 wget http://rice50ks.dna.affrc.go.jp/kasalath_genome_softmasked.tar.gz .
 wget http://rice50ks.dna.affrc.go.jp/kasalath_genes.tar.gz .
 
+# 1a. Retrieve Oryza sativa japonica (Osj) protein sequences from Ensembl for gth analysis:
+# wget ftp://ftp.ensemblgenomes.org/pub/plants/release-26/fasta/oryza_sativa/pep/Oryza_sativa.IRGSP-1.0.26.pep.all.fa.gz
+# gunzip -f *.gz
+
 tar -xzf kasalath_genome.tar.gz
 tar -xzf kasalath_genome_softmasked.tar.gz
 tar -xzf kasalath_genes.tar.gz
@@ -20,7 +24,6 @@ tar -xzf kasalath_genes.tar.gz
 ln -s kasalath_genes/kasalath_RAP.gff OsaCHR.gff
 ln -s kasalath_genome/all.fasta OsaCHR.fa
 ln -s kasalath_genome_softmasked/all.softmasked.fasta OsaRMCHR.fa
-
 
 # 2. Add the label "OsaChr" to the chromosome sequence names so that ">chr01" becomes ">OsaChr1", etc.:
 
@@ -32,24 +35,37 @@ sed -i -e "s/^>UM/>OsaChrUM/" OsaCHR.fa
 # 3. Create BLAST databases for the genome sequences:
 
 makeblastdb -in OsaCHR.fa -dbtype nucl -parse_seqids -out OsaDNA
+# makeblastdb -in Oryza_sativa.IRGSP-1.0.26.pep.all.fa -dbtype prot -parse_seqids -out OsjPEP
 
 
-# 4. Modify the repeat-masked chromosome sequences so that ">chr01" becomes ">OsaRmChr1", etc.:
+# 4. Prepare OsjPRT for use with gth:
+
+# gt seqtransform -addstopaminos Oryza_sativa.IRGSP-1.0.26.pep.all.fa > OsjPRT
+
+
+# 5. Modify the repeat-masked chromosome sequences so that ">chr01" becomes ">OsaRmChr1", etc.:
 
 sed -i -e "s/^>chr0\([1-9]\)/>OsaRmChr\1/" OsaRMCHR.fa
 sed -i -e "s/^>chr1\([0-9]\)/>OsaRmChr1\1/" OsaRMCHR.fa
 sed -i -e "s/^>UM/>OsaChrRmUM/" OsaRMCHR.fa
 
 
-# 5. Extract gene coordinates from the *.gff3 file with sequence identifiers appropriate for unmasked and masked
+# 6. Extract gene coordinates from the *.gff file with sequence identifiers appropriate for unmasked and masked
 #    chromosome sequences (for possible use with QUAST):
 
 sed -i -e "s/^chr0\([1-9]\)/OsaChr\1/" OsaCHR.gff
 sed -i -e "s/^chr1\([0-9]\)/OsaChr1\1/" OsaCHR.gff
 sed -i -e "s/^UM/OsaChrUM/" OsaCHR.gff
 
-egrep "^OsaChr.*mRNA" OsaCHR.gff > tmp &&\
-\mv tmp OsaCHR.gff
+# egrep "^OsaChr.*mRNA" OsaCHR.gff > tmp && \mv tmp OsaCHR.gff
+
+# 7. Generate EMBL entry from a fasta sequence and a GFF feature table:
+# seqret -sequence aj242600.fasta -feature -fformat gff -fopenfile aj242600.gff -osformat embl -auto
+# seqret -sformat embl -sequence aj242600.dat -feature -osformat fasta -offormat gff -auto
+
+seqret -sequence OsaCHR.fa -feature -fformat gff -fopenfile OsaCHR.gff -osformat embl -auto -outseq OsaCHR.embl
+seqret -sequence OsaCHR.embl -feature -snucleotide T -sformat1 embl -osformat2 gff3 -outseq OsaCHR.gff3 
+egrep "^OsaChr.*mRNA" OsaCHR.gff3 > tmp && \mv tmp OsaCHR.gff3
 
 \rm -r *.tar.gz
 
