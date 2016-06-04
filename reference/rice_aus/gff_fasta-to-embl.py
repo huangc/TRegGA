@@ -1,5 +1,6 @@
 """Convert a GFF and associated FASTA file into Embl format.
 Original: https://www.biostars.org/p/2492/ by Brad Chapman
+Install BCBio: pip install bcbio-gff
 Usage:
 gff_fasta-to-embl.py <GFF annotation file> <FASTA sequence file>
 """
