@@ -16,17 +16,18 @@ TARGET_SEQNAME=OsaXA7 # Replace GUIDESEQ with an appropriate target name; e.g. N
 TARGET_SEQ=${TARGET_SEQNAME}.fasta
 TARGET_EMBL=${TARGET_SEQNAME}.embl
 TARGET_GFF3=${TARGET_SEQNAME}.gff3
-# REFSEQ=${TARGET_DIR}/${TARGET_EMBL}
-# REFSEQNAME=${TARGET_SEQNAME}
+REFSEQ=${TARGET_DIR}/${TARGET_EMBL}
+REFSEQNAME=${TARGET_SEQNAME}
+REFFASTA=${TARGET_DIR}/${TARGET_SEQ}
 
 # Alternatively, REFSEQ can be the whole reference chromosome  
-REFSEQ=${TRegGA_DIR}/targets/OsaCHR6.embl
-REFSEQNAME=OsaCHR6
+# REFSEQ=${TRegGA_DIR}/targets/OsaCHR6.embl
+# REFSEQNAME=OsaCHR6
 # In case whole reference chromosome is used, the fasta file needs to be generated from the embl file.
 cd ${TRegGA_DIR}/targets
 # python ${TRegGA_DIR}/targets/getTarget.py ${REFSEQ} ${REFSEQNAME}
 seqret -sequence ${REFSEQNAME}.embl -feature -snucleotide T -supper1 -sformat1 embl -osformat2 fasta -outseq ${REFSEQNAME}.fasta
-REFFASTA=${TRegGA_DIR}/targets/${REFSEQNAME}.fasta
+# REFFASTA=${TRegGA_DIR}/targets/${REFSEQNAME}.fasta
 
 # QUERYSEQNAME in regular TRegGA is RATT_QUERY_SEQNAME=${SYNONYM}-${TARGET_SEQNAME}
 # QUERYSEQ=${TRegGA_DIR}/assembly/rfguided/${SYNONYM}-on-${TARGET_SEQNAME}/EVALUATION/${SYNONYM}-${TARGET_SEQNAME}.fa
