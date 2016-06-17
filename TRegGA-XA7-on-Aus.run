@@ -1,0 +1,151 @@
+#### Alternatively, use Aus DJ123 as reference for TRegGA.
+# Download rice aus Kasalath [2] reference genome
+cd ${TRegGA_DIR}/reference
+mkdir rice_aus
+cd rice_aus
+./xgetseq
+cd -
+
+# Blastn the XA7Marker against rice_aus database
+mkdir -p ${TRegGA_DIR}/run/Kasalath
+cd ${TRegGA_DIR}/run/Kasalath
+\cp ${TRegGA_DIR}/doc/M5_56K/XA7MarkerDNA.fa . 
+BLASTDB=${TRegGA_DIR}/reference/rice_japonica/OsjDNA
+DB_REFSEQ=OsjDNA
+BLASTDB=${TRegGA_DIR}/reference/rice_indica/OsiDNA
+DB_REFSEQ=OsiDNA
+BLASTDB=${TRegGA_DIR}/reference/rice_aus/OsaDNA
+DB_REFSEQ=OsaDNA
+
+QUERY=Xa7MarkerDNA.fa
+QUERYNAME=Xa7Marker
+QUERYSHORT=Xa7Markershort.fa
+QUERYNAMESHORT=Xa7Markershort
+
+# OUTFMT is the tabular output format for BlastDB query
+OUTFMT='6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore gaps qcovs qcovhsp'
+EVALUE="1e-100"
+PERC_IDENTITY=92
+# Word length of initial exact match, blastn default is 11, blastn-short default is 7. 
+blastn -db ${BLASTDB} -query ${QUERY} -evalue ${EVALUE} -perc_identity=${PERC_IDENTITY} > blastn.${QUERYNAME}-on-${DB_REFSEQ}.aln
+blastn -db ${BLASTDB} -query ${QUERY} -evalue ${EVALUE} -perc_identity=${PERC_IDENTITY} -outfmt "${OUTFMT}" > blastn.${QUERYNAME}-on-${DB_REFSEQ}.table
+
+## If adjust for short sequences
+# -task "blastn-short"
+# -word_size 7
+# -evalue 1000
+# -dust no
+blastn -db ${BLASTDB} -query ${QUERYSHORT} -task "blastn-short" -word_size 11 -evalue 10 -perc_identity=100 -outfmt "${OUTFMT}" > blastn.${QUERYNAMESHORT}-on-${DB_REFSEQ}.table
+grep "Chr6" blastn.${QUERYNAMESHORT}-on-${DB_REFSEQ}.table > blastn.${QUERYNAMESHORT}-on-${DB_REFSEQ}_Chr6.table
+
+* 1. M5_M5-56K in rice japonica is chr6:27,965,437..28,022,337, Length=56,901 bp.
+* 2. M5_M5-56K in rice japonica is redefined as chr6:27,965,001..28,023,000, Length=58,000 bp.
+* 3. M5_M5-56K in rice indica is chr6:29,683,670..29,828,319, Length=144,650 bp.
+* 4. M5_M5-56K in rice indica is redefined to chr6:29,683,001..29,829,000, Length=146,000 bp.
+* 5. M5_M5-56K in rice aus Kasalath is chr6:26,752,440..26,776,166..26,777,887..(27,007,090), Length=25,448 (or 254,651) bp.
+* 6. M5_M5-56K in rice aus Kasalath is redefined to chr6:26,625,001..27,007,500, Length=382,500 bp.
+
+
+##-----------------------------------------------------------
+#!/bin/sh
+TRegGA_DIR=$(pwd)
+source ${TRegGA_DIR}/TRegGA.source
+EMAIL="youremail@indiana.edu"
+WALLTIME=24
+VMEM=200
+PPN=2
+CHECKONLY=no
+NUMPROC=2
+SAMPLE="IRBB7 DV86 IRBB62"
+# CULTIVAR='\"XA7B\"'
+# SYNONYM="XA7B"
+TARGET=DJ123_scaffold10
+REFERENCE=DJ123_scaffold10
+FROM=
+TO=
+
+##-----------------------------------------
+## No need to change below
+##-----------------------------------------
+# generate TRegGA.sample with a list of sample names in ${SAMPLE}
+\rm -f TRegGA.sample
+for k in ${SAMPLE}
+do
+grep "$k" ${TRegGA_DIR}/reads/rice_line_metadata_20140521.tsv > rec.rice_line
+VARID=`cut -f1 rec.rice_line`
+SNPseekID=`cut -f5 rec.rice_line`
+VARNAME=`cut -f13 rec.rice_line`
+VARGROUP=`cut -f18 rec.rice_line`
+echo "$VARID|$SNPseekID|$VARNAME|$VARGROUP" >> TRegGA.sample
+done
+
+# The VARNAME/SYNONYME (third column, $3) CANNOT have any whitespace in it. Replace the whitespaces with "_" or remove it if there is any.
+awk 'BEGIN {OFS=FS="|"} {gsub(/\s/,"_",$3); print }' TRegGA.sample > tmp && \mv tmp TRegGA.sample
+# awk 'BEGIN {OFS=FS="|"} {gsub(/\s/,"",$3); print }' TRegGA.sample > tmp && \mv tmp TRegGA.sample
+
+# To assign the first/third column as the sample names for TRegGA run
+# SAMPLE=`cut -d"|" -f1 TRegGA.sample | awk 1 ORS=" "`
+SAMPLE=`cut -d"|" -f3 TRegGA.sample | awk 1 ORS=" "`
+
+
+len=`awk 'END { print NR }' TRegGA.sample`
+for ((k=1; k<=$len; k++))
+do
+head -$k TRegGA.sample | tail -1 > rec
+CULTIVAR=`cut -d "|" -f1 rec`
+SYNONYM=`cut -d "|" -f3 rec`
+
+echo "
+#!/bin/bash
+#PBS -m abe
+#PBS -l nodes=1:ppn=${PPN},vmem=${VMEM}gb,walltime=${WALLTIME}:00:00
+#PBS -M ${EMAIL}
+#PBS -N TRegGA_${SYNONYM}-on-${TARGET}
+#PBS -j oe
+" > runTRegGA_${SYNONYM}-on-${TARGET}
+
+cat ${TRegGA_DIR}/xloadmodules >> runTRegGA_${SYNONYM}-on-${TARGET}
+
+echo "
+TRegGA_DIR=${TRegGA_DIR}
+source ${TRegGA_DIR}/TRegGA.source
+source ${SRCDIR}/PAGIT/PAGIT/sourceme.pagit
+cd ${TRegGA_DIR}
+
+# For the read prep and no more.
+# make CHECKONLY=${CHECKONLY} NUMPROC=${NUMPROC} CULTIVAR='\\\"${CULTIVAR}\\\"' SYNONYM=${SYNONYM} -f Makefile_TRegGA-orig ${TRegGA_DIR}/reads/${SYNONYM}/${SYNONYM}_1.fa >& err_${SYNONYM}-reads
+
+# For the read prep and denovo assembly and no more.
+# make CHECKONLY=${CHECKONLY} NUMPROC=${NUMPROC} CULTIVAR='\\\"${CULTIVAR}\\\"' SYNONYM=${SYNONYM} -f Makefile_TRegGA-orig ${TRegGA_DIR}/assembly/denovo/${SYNONYM}/${SYNONYM}-GF/${SYNONYM}-GF.gapfilled.final.fa >& err_${SYNONYM}-denovo
+
+# For the target prep only
+# make CHECKONLY=${CHECKONLY} NUMPROC=${NUMPROC} CULTIVAR='\\\"${CULTIVAR}\\\"' SYNONYM=${SYNONYM} TARGET=${TARGET} REFERENCE=${REFERENCE} FROM=${FROM} TO=${TO} -f Makefile_TRegGA-orig ${TRegGA_DIR}/targets/${TARGET}.embl >& err_${SYNONYM}-TargetPrep-${TARGET}
+
+# For the entire workflow
+make CHECKONLY=${CHECKONLY} NUMPROC=${NUMPROC} CULTIVAR='\\\"${CULTIVAR}\\\"' SYNONYM=${SYNONYM} TARGET=${TARGET} REFERENCE=${REFERENCE} FROM=${FROM} TO=${TO} -f Makefile_TRegGA-orig >& err_${SYNONYM}-on-${TARGET}
+
+##---------------------------
+# Traverse to ${TRegGA_DIR}/assembly/rfguided/${SYNONYM}-on-${TARGET}/EVALUATION for the assembly results.
+# The assembly results can be visually evaluated against the target using the Artemis Comparson Tool (ACT):
+# ${SRCDIR}/PAGIT/PAGIT/bin/act ${TARGET}.embl blastn.out ${SYNONYM}-${TARGET}.embl
+# The gene structure predictions of the assembly by GenomeThreader can be found in the file gth.OsjPRT-on-${SYNONYM}-${TARGET}.
+
+##---------------------------
+## To clean up files after the job is done
+# cd ${TRegGA_DIR}/reads/${SYNONYM}
+# make -f Makefile_GPR_${SYNONYM} cleanup
+# cd ${TRegGA_DIR}/assembly/denovo/${SYNONYM}
+# make -f Makefile_denovo_${SYNONYM} cleanup
+# cd ${TRegGA_DIR}/assembly/rfguided/${SYNONYM}-on-${TARGET}
+# make -f Makefile_RGA_${SYNONYM}-on-${TARGET} cleanup
+
+##-----------------------------
+## To clean up files for all jobs under ${TRegGA_DIR}
+# cd ${TRegGA_DIR}
+# find . -path "*ALG/tmp" -type d | xargs -I {} \rm -r {}
+# find . -path "*GF/alignoutput" -type d | xargs -I {} \rm -r {}
+# find . -path "*GF/reads" -type d | xargs -I {} \rm -r {}
+
+" >> runTRegGA_${SYNONYM}-on-${TARGET}
+done
+
