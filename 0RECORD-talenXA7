@@ -1,0 +1,86 @@
+## This is the analyze the TALEN binding sites on the supercontogs assembled from XA7 haplovars
+
+source ./0SOURCE
+TRegGA_DIR=/projects/huangcy/MYGIT/TRegGA
+runNAME=avrXA7_on_DJ123_scaffold10
+
+cd ${TRegGA_DIR}/run
+mkdir -p talen_${runNAME}
+cd talen_${runNAME}
+
+# SAMPLE=DJ123_scaffold10
+SAMPLE="IRBB7 DV86 IRBB62"
+for i in ${SAMPLE}
+do
+CULTIVAR=${i}
+SYNONYM=${i}
+OLDTARGET=DJ123_scaffold10
+TARGET=${i}-${OLDTARGET}
+
+# copy the reference target here
+\cp ${TRegGA_DIR}/targets/${OLDTARGET}.fasta ${OLDTARGET}.fa
+\cp ${TRegGA_DIR}/targets/${OLDTARGET}.embl ${OLDTARGET}.embl
+
+\cp ${TRegGA_DIR}/run/ratt_DJ123_scaffold10-to-OsaXA7/EVALUATION/DJ123_scaffold10.fa .
+\cp ${TRegGA_DIR}/run/ratt_DJ123_scaffold10-to-OsaXA7/EVALUATION/DJ123_scaffold10.embl .
+\cp ${TRegGA_DIR}/run/ratt_DJ123_scaffold10-to-OsaXA7/EVALUATION/gth.OsjPRT-on-DJ123_scaffold10 .
+
+# copy rfguided supercontigs here
+
+\cp ${TRegGA_DIR}/assembly/rfguided/${SYNONYM}-on-${OLDTARGET}/EVALUATION/${SYNONYM}.fa .
+\cp ${TRegGA_DIR}/assembly/rfguided/${SYNONYM}-on-${OLDTARGET}/EVALUATION/${SYNONYM}.embl .
+\cp ${TRegGA_DIR}/assembly/rfguided/${SYNONYM}-on-${OLDTARGET}/EVALUATION/gth.OsjPRT-on-${SYNONYM} .
+
+\cp ${TRegGA_DIR}/assembly/rfguided/${SYNONYM}-on-${OLDTARGET}/EVALUATION/${SYNONYM}-${OLDTARGET}.fa .
+\cp ${TRegGA_DIR}/assembly/rfguided/${SYNONYM}-on-${OLDTARGET}/EVALUATION/${SYNONYM}-${OLDTARGET}.embl .
+\cp ${TRegGA_DIR}/assembly/rfguided/${SYNONYM}-on-${OLDTARGET}/EVALUATION/gth.OsjPRT-on-${SYNONYM}-${OLDTARGET} .
+
+# \cp ${TRegGA_DIR}/assembly/rfguided/${SYNONYM}-on-${TARGET}/EVALUATION/${SYNONYM}-${TARGET}.fa .
+# \cp ${TRegGA_DIR}/assembly/rfguided/${SYNONYM}-on-${TARGET}/EVALUATION/${SYNONYM}-${TARGET}.embl .
+# \cp ${TRegGA_DIR}/assembly/rfguided/${SYNONYM}-on-${TARGET}/EVALUATION/gth.OsjPRT-on-${SYNONYM}-${TARGET} .
+
+done
+
+## TALE-NT2 analysis for TALE EBE
+## The AvrXa7 normal and frameshift versions are:
+#>AvrXa7: NI HG NI NI NS HD NN HD HD HD NS N* N* HD HD NS NS NN NN NI NG NN NI N* NS N*
+#>AvrXa7_frameshift: NI HG NI NI NS HD NN HD HD HD NS N* HD HD NS NS NN NN NI NG NN NI N* NS N*
+## PthXo3 normal and frameshift versions are:
+#>PthXo3: NI HG NI HG NI NI NI HD NN HD HD HD NG HD N* NI HD HD NN NS NI NN NN NG NN HD N* NS N*
+#>PthXo3_frameshift: NI HG NI HG NI NI NI HD NN HD HD HD NG HD NI HD HD NN NS NI NN NN NG NN HD N* NS N*
+
+AVRXA7="NI HG NI NI NS HD NN HD HD HD NS N* N* HD HD NS NS NN NN NI NG NN NI N* NS N*"
+AVRXA7_FS="NI HG NI NI NS HD NN HD HD HD NS N* HD HD NS NS NN NN NI NG NN NI N* NS N*"
+
+echo '"NI HG NI NI NS HD NN HD HD HD NS N* N* HD HD NS NS NN NN NI NG NN NI N* NS N*"' > talenAVRXA7
+echo '"NI HG NI NI NS HD NN HD HD HD NS N* HD HD NS NS NN NN NI NG NN NI N* NS N*"' > talenAVRXA7FS
+
+## TALE analysis
+#1. Make TALE-NT2 prediction of paied-TALEN binding sites on fasta files
+#    -x|--cutoffmult       multiple of best score at which potential sites will be
+#                          filtered; default is 3.0
+TSO_x=3
+
+TALEN="talenAVRXA7 talenAVRXA7FS"
+queryseq=`\ls *.fa`
+echo "
+#!/usr/bin/bash" > talesf.sh
+for p in ${TALEN}
+do
+for q in ${queryseq}
+do
+echo "
+talesf \
+        -x ${TSO_x} \
+        -o ${p}-on-${q} \
+        ${q} \
+        "`cat ${p}`"
+" >> talesf.sh
+done
+done
+
+sh talesf.sh
+\ls talenAVRXA7-on*.txt | xargs -I {} cat {} > talenAVRXA7_all-${runNAME}.out
+\ls talenAVRXA7FS-on*.txt | xargs -I {} cat {} > talenAVRXA7FS_all-${runNAME}.out
+
+
