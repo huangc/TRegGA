@@ -1,12 +1,3 @@
-## Agenda of ThaRegGA development:
-1. prove of concept using target genes LRK and Sub1:
-   * (a). TRegGA of target gene with rice indica 93-11 reads against reference japonica.
-   * (b). TRegGA of target gene with rice indica 93-11 reads against reference using denovo assembled superscaffolds from haplovars (manually selected)\
- on the target gene.
-   * Comparison of result (a) and (b) to 93-11 reference: result (b) should be closer to ref 93-11 than result (a) due to the use of ThaRegGA.
-2. develop algorithm for identifying haplotypes of a target gene from 3kRGP
-3. repeat of Aim1 with developed algorithm for ThaRegGA.
-
 ## Cultivars that are Xoo resistant
 * CX134 IRBB7 Indica Note: [6] Xa7
 * IRIS 313-10605 DV86 Aus/boro  Note: [2][4] Xa7;Xa5
@@ -14,11 +5,9 @@
 * CX126 IRBB60 Indica Note: [3][4] Xa4;xa5;xa13;Xa21
 * CX44 IR58025B Indica Note: [3][4] Xa4;xa5;xa13;Xa21
 
-# REFERENCE:
-# [1] Schatz MC, et al. Whole genome de novo assemblies of three divergent strains of rice, Oryza sativa, document novel gene space of 
-# aus and indica. Genome Biol. 2014;15(11):506.
-# [2] Sakai H, et al. Construction of pseudomolecule sequences of the aus rice cultivar Kasalath for comparative genomics of 
-# Asian cultivated rice. DNA Res. 2014 Aug;21(4):397-405.
+## REFERENCE:
+1. Schatz MC, et al. Whole genome de novo assemblies of three divergent strains of rice, Oryza sativa, document novel gene space of aus and indica. Genome Biol. 2014;15(11):506.
+2. Sakai H, et al. Construction of pseudomolecule sequences of the aus rice cultivar Kasalath for comparative genomics of Asian cultivated rice. DNA Res. 2014 Aug;21(4):397-405.
 
 ## Agenda of haplovars application on finding Xa7 gene.
 #### Xa7 Target region:
