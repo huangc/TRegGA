@@ -1,12 +1,12 @@
 ## Xa7 QTL regions:
-#### Xa7QTL was mapped to a genetic interval of 118.5 kb (0.21-cM) between SSR markers GDSSR02 and RM20593 [1]
+#### Xa7QTL was mapped to a genetic interval of 118.5 kb (0.21-cM) between SSR markers GDSSR02 and RM20593 on rice japonica [1]
 * RM20593
   * Forward: 5’-AAGGTACACTTGCTCTGACGGTAGCIRGSP-1.0: 25 bp from chr06:28,082,317..28,082,341
   * Reverse: 5’-AGACCTCAGTGGCAAATCCTACGIRGSP-1.0: 23 bp from chr06:28,082,610..28,082,632
 * GDSSR02
   * Forward: 5’-TGCCCACCGTCGAACTCGTGG, IRGSP-1.0: 21 bp from chr06:27,963,796..27,963,816 
   * Reverse: 5’-AGCTAGCAATTCGCATGATTGCIRGSP-1.0: 22 bp from chr06:27,963,981..27,964,002
-* GDSSR02 to RM20593: 118,836 bp from chr06:27,963,796.. 28,082,632
+* GDSSR02 to RM20593: 118,836 bp from chr06:27,963,796..28,082,632
 * [1] Shen Chen, et al. High-resolution mapping and gene prediction of Xanthomonas Oryzae pv. Oryzae resistance gene Xa7. Molecular Breeding;2008;22(3):433-441.
 
 ```bash
@@ -22,7 +22,7 @@ AGCTAGCAATTCGCATGATTGC
 
 ```
 
-#### Xa7QTL was mapped to a genetic interval of 200-kb between SSR marker RM20576 and STS marker MY4 [2]
+#### Xa7QTL was mapped to a genetic interval of 200-kb between SSR marker RM20576 and STS marker MY4 on rice japonica [2]
 * RM20576 
   * Forward: 5’-CTGTTGCTAGCTTACACGAATTGCIRGSP-1.0: 24 bp from chr06:27,890,361..27,890,384
   * Reverse: 5’-CCGGTAGTACGTCAGCTACTATGCIRGSP-1.0: 24 bp from chr06:27,890,627..27,890,650
@@ -45,7 +45,7 @@ TAGAATTTGCATCATCCC
 
 ```
 
-#### Fine mapping of Xa7 by Dr. Bing Yang Lab at 01/20/2015 indicates the gene is within a 56 kb region between two markers M5 and M5-56k:
+#### Fine mapping of Xa7 by Dr. Bing Yang's lab at 01/20/2015 indicates the gene is within a 56 kb region between two markers M5 and M5-56k:
 ```
 >M5_Xa7QTL_BY
 CGATCTTACTGGCTCTGCAACTCTGTATTGCATGCTAAATCCGTTATGATTTACTACTAATGATGGATGTACTGATACATAGTACTGATCGATGAGCTAGCTAGGGTTTTGGATGGGTCGGAAGGTGAGAAAGAGGAGGAAAGAAGAGAGAATCTATTATATTATTAAAGGAATAGAAAAAGAAGCCTCCACGTTCGCTCTCACGGCCTAGAAATTCTCACATTAATCGGAGAAAAGAAAAAGCAGAGTCCATATAGAAATACAATTTAGAAATAGCTGAAATTCGGAATTATAAAATAAGGAATATTAGAAGAGGAGACTAGAGTCCATATGGAAATACAATTTAGAAATAGTTGAAATTCAGAATTAAAAAATAAGAAATATTAGAAGAGGAGACTAGAGTCCATATAGAAATATAATTAGGAAATAACTGAAATTCGGAATTAAAAATAAGGAATATTAGAAGTAGAGTATAGAGTCCATATAAAAATATAATTAGGAAATAACTGAAATTAGGAATTAATAATAAGGAATATTAGAGATAGAGTATAGAGTCCATATAAAAATACAATTAGTAAATAACTGTAATTCGGAATTAAAAATAAGGAATATTAGAGGTAGAGTATAGAGTCCATATAGAAATACAATTAGAAAATAACTGTAATTCGGAATTAAAAATAAGGAATATTAGAGGTAGAGTATAGAGTCCATATAAAAATACAATTAGGAAATAACTGAAATTCGGAATTAAAAATAAGGAATATTAGAGGTAGAGTATAGAGTCCATATAGAAATACAATTAGAAAATAATAAAAATTCGGAATTAAAAATTTGATATTAAAAATAATTAATAACTAACACGTATATATAATACAATATAAATATTACACATTAGTAGTTTTACAAAATTTAAAATTATATTGTCATTTTAATAAATTTGAATAATACATTGAGAAAACATATATGCTATTACATGAGAGAAAATATAATGATGCTAGCCGCGCAATATGCACGGGCCACTATGCTAGTTGAAGATGATTAGAAGAAATCTAATCAATTTCAGAGCATTACTGTATTCATCTTTCAGTGTATATTCGTCTGGGTAGTGCTGATTGTGCCATTATAATTGACGGGGTCGTACTTCGTACGGACGAATCGACACAGACATGCATGATTGTCTTTTAGTACTTAGAATTAGTAGCAAAGTCGGTGGGACAAC
@@ -56,7 +56,7 @@ AGAAAACGGATCAGACAAGCATTCTTTGTTTAAACGTGTAGACATCTCCTTATGTTACTCCTCTTGTACATGTGGGTTGT
 * M5_M5-56K in rice japonica is chr6:27,965,437..28,022,337, Length=56,901 bp.
 * M5_M5-56K in rice indica is chr6:29,683,670..29,828,319, Length=144,650 bp.
 * M5_M5-56K in rice indica contains an artifact insert region in chr6:29,704,162..29,783,684, Length=79,523 bp, which was possibly originated from contaminated bacterial sequence. After removing this artifact insert, M5_M5-56K in rice indica becomes 66,477 bp.
-* Seven protein-coding genes are included in this region. They can be used as anchors. They are: OS06G0673700, OS06G0674000, OS06G0674100, OS06G0674400, OS06G0674800, OS06G0675200, OS06G0675300.
+* Seven protein-coding genes are located in this region. They could be used as anchor proteins for the Xa7QTL identification among different rice cultivars. They are: OS06G0673700, OS06G0674000, OS06G0674100, OS06G0674400, OS06G0674800, OS06G0675200, OS06G0675300.
 * Among them, there are two pairs of overlapping genes: "OS06G0673700, OS06G0674000", and "OS06G0675200, OS06G0675300".
 
 ## Rice cultivars that are Xoo resistant
@@ -98,8 +98,7 @@ PERC_IDENTITY=92
 # grep "Chr6" blastn.${QUERYNAMESHORT}-on-${DB_REFSEQ}.table > blastn.${QUERYNAMESHORT}-on-${DB_REFSEQ}_Chr6.table
 ```
 
-#### Haplovars DID NOT improve the contig N50 whatsoever, SAD. 
-#### Alternatively, use Aus DJ123 as reference for TRegGA.
+#### Use Aus DJ123 as reference for TRegGA.
 * 1. DJ123 reference sequence from http://schatzlab.cshl.edu/data/rice/
 * 2. Marker sequence for XA7 M5-56K region in DJ123
 ```bash
@@ -218,147 +217,3 @@ MY4R_Xa7QTL-200R        OsaChr6 100.00  18      0       0       1       18      
 * 5. M5_M5-56K in rice aus Kasalath is chr6:26,752,440..26,776,166..26,777,887..(27,007,090), Length=25,448 (or 254,651) bp.
 * 6. M5_M5-56K in rice aus Kasalath is redefined to chr6:26,625,001..27,007,500, Length=382,500 bp.
 
-## run TRegGA using OsaXA7 as reference
-sh runTRegGA_IRBB7-on-OsaXA7
-sh runTRegGA_DV86-on-OsaXA7
-sh runTRegGA_IRBB62-on-OsaXA7
-
-\cp ${TRegGA_DIR}/run/Kasalath/Xa7MarkerDNA.fa .
-QUERY=Xa7MarkerDNA.fa
-\cp ${TRegGA_DIR}/run/Kasalath/Xa7Markershort.fa .
-QUERYSHORT=Xa7Markershort.fa
-OUTFMT='6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore gaps qcovs qcovhsp'
-EVALUE="1e-100"
-PERC_IDENTITY=92
-
-## locate the markers in the assemblies
-\cp ${TRegGA_DIR}/assembly/rfguided/${SYNONYM}-on-${TARGET_SEQNAME}/EVALUATION/${SYNONYM}-${TARGET_SEQNAME}.fa .
-\cp ${TRegGA_DIR}/assembly/rfguided/${SYNONYM}-on-${TARGET_SEQNAME}/EVALUATION/${SYNONYM}-${TARGET_SEQNAME}.embl .
-blastn -query ${QUERY} -subject ${SYNONYM}-OsaXA7.fa -evalue ${EVALUE} -perc_identity=${PERC_IDENTITY} -outfmt "${OUTFMT}" > blastn.Xa7MarkerDNA-on-${SYNONYM}-OsaXA7.table
-blastn -query Xa7Markershort.fa -subject ${SYNONYM}-OsaXA7.fa -task "blastn-short" -word_size 11 -evalue 10 -perc_identity=100 -outfmt "${OUTFMT}" > blastn.Xa7Markershort-on-${SYNONYM}-OsaXA7.table
-
-
-# IRBB7-OsaXA7.fa
-M5_56k_Xa7QTL_BY        IRBB7-OsaXA7    99.14   813     5       1       1       813     157840  158650  0.0      1461   2       81      47
-M5_56k_Xa7QTL_BY        IRBB7-OsaXA7    95.64   596     11      3       816     1410    158705  159286  0.0       942   15      81      34
-RM20593F_Xa7QTL-118R    IRBB7-OsaXA7    100.00  25      0       0       1       25      228388  228412  5e-09   50.1    0       100     100
-RM20576F_Xa7QTL-200L    IRBB7-OsaXA7    100.00  24      0       0       1       24      603     626     2e-08   48.1    0       100     100
-RM20576R_Xa7QTL-200L    IRBB7-OsaXA7    100.00  24      0       0       1       24      995     972     2e-08   48.1    0       100     100
-MY4F_Xa7QTL-200R        IRBB7-OsaXA7    100.00  18      0       0       1       18      236314  236331  4e-05   36.2    0       100     100
-MY4R_Xa7QTL-200R        IRBB7-OsaXA7    100.00  18      0       0       1       18      236501  236484  4e-05   36.2    0       100     100
-
-# DV86-OsaXA7.fa
-M5_56k_Xa7QTL_BY        DV86-OsaXA7     98.96   673     5       1       1       673     156895  157565  0.0      1203   2       58      39
-M5_56k_Xa7QTL_BY        DV86-OsaXA7     97.62   336     7       1       1038    1372    158018  158353  4e-165    575   1       58      19
-RM20593F_Xa7QTL-118R    DV86-OsaXA7     100.00  25      0       0       1       25      223389  223413  5e-09   50.1    0       100     100
-RM20576F_Xa7QTL-200L    DV86-OsaXA7     100.00  24      0       0       1       24      580     603     2e-08   48.1    0       100     100
-MY4F_Xa7QTL-200R        DV86-OsaXA7     100.00  18      0       0       1       18      231077  231094  4e-05   36.2    0       100     100
-
-# IRBB62-OsaXA7.fa
-M5_56k_Xa7QTL_BY        IRBB62-OsaXA7   99.12   1025    7       1       1       1025    159837  160859  0.0      1842   2       59      59
-RM20593F_Xa7QTL-118R    IRBB62-OsaXA7   100.00  25      0       0       1       25      230287  230311  5e-09   50.1    0       100     100
-RM20576F_Xa7QTL-200L    IRBB62-OsaXA7   100.00  24      0       0       1       24      559     582     2e-08   48.1    0       100     100
-MY4R_Xa7QTL-200R        IRBB62-OsaXA7   100.00  18      0       0       1       18      238209  238192  4e-05   36.2    0       100     100
-
-
-
-##------------------------------------
-## DJ123 scaffold_10 has VERY good coverage on the Xa7QTL region
-## Transfer annotaion from rice aus reference Kasalath to rice aus DJ123 scaffold_10:197,410..199,218 
-# DJ123 scaffold_10 full length is 1,279,957 bp; M5-56K region Length=1,809 bp.
-cd ${TRegGA_DIR}/run
-sh ${TRegGA_DIR}/bin/RATT_Ref-to-Assembly.sh
-
-## run TRegGA using DJ123_scaffold10 as reference
-cd ${TRegGA_DIR}/targets
-\cp ${TRegGA_DIR}/run/ratt_DJ123_scaffold10-to-OsaXA7/EVALUATION/DJ123_scaffold10.fa DJ123_scaffold10.fasta
-\cp ${TRegGA_DIR}/run/ratt_DJ123_scaffold10-to-OsaXA7/EVALUATION/DJ123_scaffold10.embl .
-# for unknown reasons, the DJ123_scaffold10.gff3 is empty, so remake it from embl file:
-seqret -sequence DJ123_scaffold10.embl -feature -snucleotide T -sformat1 embl -osformat2 gff3 -outseq DJ123_scaffold10.gff3
-
-sh runTRegGA_IRBB7-on-DJ123_scaffold10
-sh runTRegGA_DV86-on-DJ123_scaffold10
-sh runTRegGA_IRBB62-on-DJ123_scaffold10
-
-## Search for differentially expressed genes in the Xa7QTL region of DJ123_scaffold10
-cd ${TRegGA_DIR}
-sh ${TRegGA_DIR}/TRegGA_gth_RNAseqDE.sh
-
-## Only two DE genes, OS06G0673800 and OS06G0676700, in all IRBB7, DV86 and IRBB62
-# OS06G0673800: Conserved hypothetical protein
-# OS06G0676700: Similar to High pI alpha-glucosidase
-
-## Compare Talen binding site: the avrXa7 resistant plants should have the avrXa7 binding site at the DE genes
-# IRBB7-DJ123_scaffold10.embl vs DJ123_scaffold10.embl
-# DV86-on-DJ123_scaffold10.embl vs DJ123_scaffold10.embl
-# IRBB62-on-DJ123_scaffold10.embl vs DJ123_scaffold10.embl
-
-sh ${TRegGA_DIR}/0RECORD-talenXA7
-
-## Find genomic positions of DE genes OS06G0673800 and OS06G0676700 in 
-#  IRBB7-DJ123_scaffold10.embl, DV86-on-DJ123_scaffold10.embl, IRBB62-on-DJ123_scaffold10.embl
-GTHFILE="gth.OsjPRT-on-DJ123_scaffold10 gth.OsjPRT-on-IRBB7-DJ123_scaffold10 gth.OsjPRT-on-DV86-DJ123_scaffold10 gth.OsjPRT-on-IRBB62-DJ123_scaffold10"
-DEGENE="OS06T0673800 OS06T0676700"
-cd ${TRegGA_DIR}/run/talen_avrXA7_on_DJ123_scaffold10
-\rm -rf DEgenes_whereis_*
-for k in ${GTHFILE}
-do
-for i in ${DEGENE}
-do
-grep "^PGS.*${i}" ${k} >> DEgenes_whereis_${k}
-done
-cat DEgenes_whereis_${k} >> DEgenes_whereis_all
-done
-
-## Compare the assemblies to the p53_P5L2_sequence_from_IRBB7_Xa7_containing_rice, 62 kb.
-# OUTFMT is the tabular output format for BlastDB query
-OUTFMT='6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore gaps qcovs qcovhsp'
-EVALUE="1e-100"
-PERC_IDENTITY=92
-
-cd ${TRegGA_DIR}/run
-mkdir blastn_p53P5L2
-cd blastn_p53P5L2
-cp /home/huangcy/MYWORK/Xa7QTL/Oryza_sativa_indica_IRBB7_Xa7QTL_p53P5L2/BY_p53P5L2_IRBB7_Xa7.fa .
-\cp ${TRegGA_DIR}/run/talen_avrXA7_on_DJ123_scaffold10/*.fa .
-\cp ${TRegGA_DIR}/run/talen_avrXA7_on_DJ123_scaffold10/*.embl .
-
-QUERY=${TRegGA_DIR}/doc/BY_p53P5L2_IRBB7_Xa7.fa
-QUERYNAME=p53P5L2_irbb7
-QUERY=
-QUERYNAME=
-
-SUBJECT=DJ123_scaffold10.fa
-SUBJECTNAME=DJ123_scaffold10
-SUBJECT=IRBB7-DJ123_scaffold10.fa
-SUBJECTNAME=IRBB7-DJ123_scaffold10
-SUBJECT=DV86-DJ123_scaffold10.fa
-SUBJECTNAME=DV86-DJ123_scaffold10
-SUBJECT=IRBB62-DJ123_scaffold10.fa
-SUBJECTNAME=IRBB62-DJ123_scaffold10
-
-blastn -query ${QUERY} -subject ${SUBJECT} -evalue ${EVALUE} -perc_identity=${PERC_IDENTITY} -outfmt "${OUTFMT}" > blastn.${QUERYNAME}-on-${SUBJECTNAME}.table
-blastn -query ${QUERY} -subject ${SUBJECT} -evalue ${EVALUE} -perc_identity=${PERC_IDENTITY} > blastn.${QUERYNAME}-on-${SUBJECTNAME}.aln
-
-# BY_p53P5L2_IRBB7_Xa7 aligned 59,812bp (out of 62,882 bp, or 95.12%) with DJ123_scaffold10.
-# BY_p53P5L2_IRBB7_Xa7 aligned 50,087bp (out of 62,882 bp, or 79.65%) with IRBB7-DJ123_scaffold10. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## The only alternative way is to do RNA-Seq mapping on the assemblies regardless of the gene annotation, 
-## as the real DE gene may be a noval gene and has not yet been annotated in rice japonica before.
-
-
-```
