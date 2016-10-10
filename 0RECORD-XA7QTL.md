@@ -57,19 +57,6 @@ AGAAAACGGATCAGACAAGCATTCTTTGTTTAAACGTGTAGACATCTCCTTATGTTACTCCTCTTGTACATGTGGGTTGT
 * M5_M5-56K in rice indica is chr6:29,683,670..29,828,319, Length=144,650 bp.
 * M5_M5-56K in rice indica contains an artifact insert region in chr6:29,704,162..29,783,684, Length=79,523 bp, which was possibly originated from contaminated bacterial sequence. After removing this artifact insert, M5_M5-56K in rice indica becomes 66,477 bp.
 * Seven protein-coding genes are located in this region. They could be used as anchor proteins for the Xa7QTL identification among different rice cultivars. They are: OS06G0673700, OS06G0674000, OS06G0674100, OS06G0674400, OS06G0674800, OS06G0675200, OS06G0675300.
-* Among them, there are two pairs of overlapping genes: "OS06G0673700, OS06G0674000", and "OS06G0675200, OS06G0675300".
-
-## Rice cultivars that are Xoo resistant
-* CX134 IRBB7 Indica Note: [6] Xa7
-* IRIS 313-10605 DV86 Aus/boro  Note: [2][4] Xa7;Xa5
-* CX369 IRBB62 Indica Note: [5] Xa4;Xa7;Xa21
-* CX126 IRBB60 Indica Note: [3][4] Xa4;xa5;xa13;Xa21
-* CX44 IR58025B Indica Note: [3][4] Xa4;xa5;xa13;Xa21
-
-## REFERENCE:
-1. Schatz MC, et al. Whole genome de novo assemblies of three divergent strains of rice, Oryza sativa, document novel gene space of aus and indica. Genome Biol. 2014;15(11):506.
-2. Sakai H, et al. Construction of pseudomolecule sequences of the aus rice cultivar Kasalath for comparative genomics of Asian cultivated rice. DNA Res. 2014 Aug;21(4):397-405.
-
 
 #### Blastn
 ```bash
