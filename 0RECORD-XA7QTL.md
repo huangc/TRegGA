@@ -1,5 +1,5 @@
 ## Xa7 QTL regions:
-#### Xa7QTL was mapped to a genetic interval of 118.5 kb (0.21-cM) between SSR markers GDSSR02 and RM20593 on rice japonica [1]
+#### 1. Xa7QTL was mapped to a genetic interval of 118.5 kb (0.21-cM) between SSR markers GDSSR02 and RM20593 on rice japonica [1]
 * RM20593
   * Forward: 5’-AAGGTACACTTGCTCTGACGGTAGCIRGSP-1.0: 25 bp from chr06:28,082,317..28,082,341
   * Reverse: 5’-AGACCTCAGTGGCAAATCCTACGIRGSP-1.0: 23 bp from chr06:28,082,610..28,082,632
