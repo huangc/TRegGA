@@ -56,4 +56,4 @@ AGAAAACGGATCAGACAAGCATTCTTTGTTTAAACGTGTAGACATCTCCTTATGTTACTCCTCTTGTACATGTGGGTTGT
 * M5_M5-56K in rice japonica is chr6:27,965,437..28,022,337, Length=56,901 bp.
 * M5_M5-56K in rice indica is chr6:29,683,670..29,828,319, Length=144,650 bp.
 * M5_M5-56K in rice indica contains an artifact insert region in chr6:29,704,162..29,783,684, Length=79,523 bp, which was possibly originated from contaminated bacterial sequence. After removing this artifact insert, M5_M5-56K in rice indica becomes 66,477 bp.
-* Seven protein-coding genes are located in this region. They could be used as anchor proteins for the Xa7QTL identification among different rice cultivars. They are: OS06G0673700, OS06G0674000, OS06G0674100, OS06G0674400, OS06G0674800, OS06G0675200, OS06G0675300.
+* Seven protein-coding genes are located in this region. They could be used as anchor proteins for Xa7QTL identification and comparison among rice cultivars. They are: OS06G0673700, OS06G0674000, OS06G0674100, OS06G0674400, OS06G0674800, OS06G0675200, OS06G0675300.
