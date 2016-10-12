@@ -1,11 +1,11 @@
 ## Xa7 QTL regions:
 #### 1. Xa7QTL was mapped to a genetic interval of 118.5 kb (0.21-cM) between SSR markers GDSSR02 and RM20593 on rice japonica [1]
 * RM20593
-  * Forward: 5'-AAGGTACACTTGCTCTGACGGTAGC: IRGSP-1.0: 25 bp from chr06:28,082,317..28,082,341
-  * Reverse: 5'-AGACCTCAGTGGCAAATCCTACG: IRGSP-1.0, 23 bp from chr06:28,082,610..28,082,632
+  * Forward: 5'-AAGGTACACTTGCTCTGACGGTAGC, IRGSP-1.0, 25 bp from chr06:28,082,317..28,082,341
+  * Reverse: 5'-AGACCTCAGTGGCAAATCCTACG, IRGSP-1.0, 23 bp from chr06:28,082,610..28,082,632
 * GDSSR02
-  * Forward: 5'-TGCCCACCGTCGAACTCGTGG: IRGSP-1.0, 21 bp from chr06:27,963,796..27,963,816 
-  * Reverse: 5'-AGCTAGCAATTCGCATGATTGC: IRGSP-1.0, 22 bp from chr06:27,963,981..27,964,002
+  * Forward: 5'-TGCCCACCGTCGAACTCGTGG, IRGSP-1.0, 21 bp from chr06:27,963,796..27,963,816 
+  * Reverse: 5'-AGCTAGCAATTCGCATGATTGC, IRGSP-1.0, 22 bp from chr06:27,963,981..27,964,002
 * GDSSR02 to RM20593: 118,836 bp from chr06:27,963,796..28,082,632
 * [1] Shen Chen, et al. High-resolution mapping and gene prediction of Xanthomonas Oryzae pv. Oryzae resistance gene Xa7. Molecular Breeding;2008;22(3):433-441.
 
