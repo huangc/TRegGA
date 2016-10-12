@@ -24,11 +24,11 @@ AGCTAGCAATTCGCATGATTGC
 
 #### 2. Xa7QTL was mapped to a genetic interval of 200-kb between SSR marker RM20576 and STS marker MY4 on rice japonica [2]
 * RM20576 
-  * Forward: 5'-CTGTTGCTAGCTTACACGAATTGC, IRGSP-1.0: 24 bp from chr06:27,890,361..27,890,384
-  * Reverse: 5'-CCGGTAGTACGTCAGCTACTATGC, IRGSP-1.0: 24 bp from chr06:27,890,627..27,890,650
+  * Forward: 5'-CTGTTGCTAGCTTACACGAATTGC, IRGSP-1.0, 24 bp from chr06:27,890,361..27,890,384
+  * Reverse: 5'-CCGGTAGTACGTCAGCTACTATGC, IRGSP-1.0, 24 bp from chr06:27,890,627..27,890,650
 * MY4
-  * Forward: 5'-CTTCCTTTCCAGGCTTTC, IRGSP-1.0: 18 bp from chr06:28,090,186..28,090,203
-  * Reverse: 5'-TAGAATTTGCATCATCCC, IRGSP-1.0: 18 bp from chr06:28,090,356..28,090,373
+  * Forward: 5'-CTTCCTTTCCAGGCTTTC, IRGSP-1.0, 18 bp from chr06:28,090,186..28,090,203
+  * Reverse: 5'-TAGAATTTGCATCATCCC, IRGSP-1.0, 18 bp from chr06:28,090,356..28,090,373
 * RM20576 to MY4: 200,012  bp from chr06:27,890,361..28,090,373
 * [2] Zhang, Yuchen, et al. Identification and molecular mapping of the rice bacterial blight resistance gene allelic to Xa7 from an elite restorer line Zhenhui 084. Eur J Plant Pathol;2009;125:235–244. 
 
