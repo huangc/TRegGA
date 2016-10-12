@@ -1,11 +1,11 @@
 ## Xa7 QTL regions:
 #### 1. Xa7QTL was mapped to a genetic interval of 118.5 kb (0.21-cM) between SSR markers GDSSR02 and RM20593 on rice japonica [1]
 * RM20593
-  * Forward: 5’-AAGGTACACTTGCTCTGACGGTAGCIRGSP-1.0: 25 bp from chr06:28,082,317..28,082,341
-  * Reverse: 5’-AGACCTCAGTGGCAAATCCTACGIRGSP-1.0: 23 bp from chr06:28,082,610..28,082,632
+  * Forward: 5'-AAGGTACACTTGCTCTGACGGTAGC, IRGSP-1.0: 25 bp from chr06:28,082,317..28,082,341
+  * Reverse: 5'-AGACCTCAGTGGCAAATCCTACG, IRGSP-1.0: 23 bp from chr06:28,082,610..28,082,632
 * GDSSR02
-  * Forward: 5’-TGCCCACCGTCGAACTCGTGG, IRGSP-1.0: 21 bp from chr06:27,963,796..27,963,816 
-  * Reverse: 5’-AGCTAGCAATTCGCATGATTGCIRGSP-1.0: 22 bp from chr06:27,963,981..27,964,002
+  * Forward: 5'-TGCCCACCGTCGAACTCGTGG, IRGSP-1.0: 21 bp from chr06:27,963,796..27,963,816 
+  * Reverse: 5'-AGCTAGCAATTCGCATGATTGC, IRGSP-1.0: 22 bp from chr06:27,963,981..27,964,002
 * GDSSR02 to RM20593: 118,836 bp from chr06:27,963,796..28,082,632
 * [1] Shen Chen, et al. High-resolution mapping and gene prediction of Xanthomonas Oryzae pv. Oryzae resistance gene Xa7. Molecular Breeding;2008;22(3):433-441.
 
@@ -24,11 +24,11 @@ AGCTAGCAATTCGCATGATTGC
 
 #### 2. Xa7QTL was mapped to a genetic interval of 200-kb between SSR marker RM20576 and STS marker MY4 on rice japonica [2]
 * RM20576 
-  * Forward: 5’-CTGTTGCTAGCTTACACGAATTGCIRGSP-1.0: 24 bp from chr06:27,890,361..27,890,384
-  * Reverse: 5’-CCGGTAGTACGTCAGCTACTATGCIRGSP-1.0: 24 bp from chr06:27,890,627..27,890,650
+  * Forward: 5'-CTGTTGCTAGCTTACACGAATTGC, IRGSP-1.0: 24 bp from chr06:27,890,361..27,890,384
+  * Reverse: 5'-CCGGTAGTACGTCAGCTACTATGC, IRGSP-1.0: 24 bp from chr06:27,890,627..27,890,650
 * MY4
-  * Forward: 5’-CTTCCTTTCCAGGCTTTC IRGSP-1.0: 18 bp from chr06:28,090,186..28,090,203
-  * Reverse: 5’-TAGAATTTGCATCATCCCIRGSP-1.0: 18 bp from chr06:28,090,356..28,090,373
+  * Forward: 5'-CTTCCTTTCCAGGCTTTC, IRGSP-1.0: 18 bp from chr06:28,090,186..28,090,203
+  * Reverse: 5'-TAGAATTTGCATCATCCC, IRGSP-1.0: 18 bp from chr06:28,090,356..28,090,373
 * RM20576 to MY4: 200,012  bp from chr06:27,890,361..28,090,373
 * [2] Zhang, Yuchen, et al. Identification and molecular mapping of the rice bacterial blight resistance gene allelic to Xa7 from an elite restorer line Zhenhui 084. Eur J Plant Pathol;2009;125:235–244. 
 
